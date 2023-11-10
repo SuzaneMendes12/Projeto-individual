@@ -1,0 +1,154 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url("img css/fundo_resized.jpg");
+
+}
+
+.header .lista ul {
+    width: 500px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(248, 248, 248);
+    margin-top: 20px;
+    margin: 30px;
+    font-size: 20px;
+}
+
+.navbar {
+    display: flex;
+
+}
+
+.navbar .titulo {
+    display: flex;
+    width: 10%;
+    margin-bottom: 50px;
+
+}
+
+.subtitulo {
+    display: flex;
+
+
+}
+
+.subtitulo h3 {
+    display: flex;
+    color: aliceblue;
+    font-size: 30px;
+    align-items: center
+}
+
+#vermelhoM {
+    color: red;
+    font-size: 50px;
+
+}
+
+#azulT {
+    color: blue;
+    font-size: 50px;
+}
+
+
+.imagemH img {
+
+    width: 100%;
+}
+
+.imagemH {
+    display: flex;
+    width: 100%;
+
+    justify-content: end;
+}
+
+.textoxpto {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    padding: 50px;
+}
+
+.titulo2 {
+    display: flex;
+    flex-direction: column ;
+    margin-bottom: 40px;
+    align-items: center;
+    height:20%;
+    color: aliceblue;
+
+    
+}
+
+
+
+.pag2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+.card {
+    padding: 3rem;
+    width: 40%;
+    display: flex;
+    border: solid;
+    border-color: red;
+    border-radius: 40px;
+    background-color: #cb343454;
+    align-items: center;
+
+}
+.card p{
+    font-size: 30px;
+    color: aliceblue;
+    
+}
+.titulo3{
+    color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-texto1{
+  display: flex;
+  
+  
+
+
+}
+.img-ods1 img{
+    width: 80%;
+    
+}
+.texto-ods1{
+    color: aliceblue;
+    font-size: 20px;
+    width: 80%;
+    
+}
+.img-texto2{
+display: flex;
+justify-content: space-between;
+}
+.img-ods2 img{
+    width: 150%;
+}
+.texto-ods2{
+    color: aliceblue;
+    font-size: 25px;
+    width: 70%;
+}
+.pag3{
+    margin: 3%;
+}
+
