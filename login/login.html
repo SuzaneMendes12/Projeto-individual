@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+   
+</head>
+
+<body>
+    <div class="container">
+        <div class="buttonsForm">
+            <div class="btnColor"></div>
+            <button id="btnlogin">Login </button>
+            <button id="btncadastro">Cadastro</button>
+        </div>
+
+        <form id="login">
+            <input type="text" placeholder="Email" required />
+            <i class="fas fa-envelope iEmail"></i>
+            <input type="password" placeholder="Senha" required />
+            <i class="fas fa-lock iPassword"></i>
+            <div class="divCheck">
+                <input type="checkbox" />
+                <span>Lembrar senha </span>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <form id="cadastro">
+            <input type="text" placeholder="Nome" required />
+            <i class="fas fa-lock iNome"></i>
+            <input type="text" placeholder="Sobrenome" required />
+            <i class="fas fa-lock iSobrenome"></i>
+            <input type="text" placeholder="CPF" required />
+            <i class="fas fa-lock iCPF"></i>
+            <input type="text" placeholder="Email" required />
+            <i class="fas fa-envelope iEmail"></i>
+            <input type="password" placeholder="Senha" required />
+            <i class="fas fa-lock iPassword"></i>
+            <input type="password" placeholder="Confirmar senha" required />
+            <i class="fas fa-lock iPassword2"></i>
+
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
