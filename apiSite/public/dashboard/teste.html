@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Ranking</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Dashboard de Ranking</h1>
+
+    <select id="selectGolpe">
+      <option value="jab">Jab</option>
+      <option value="direto">Direto</option>
+      <option value="chute-alto">Chute Alto</option>
+      <option value="joelhada">Joelhada</option>
+      <option value="cotovelada">Cotovelada</option>
+    </select>
+
+    <button id="btnAtualizar" onclick="atualizarGolpe()">Atualizar Pontuação</button>
+
+    <canvas id="rankingChart"></canvas>
+  </div>
+
+  <script>
+    // Dados de exemplo para o ranking
+    var rankingData = {
+      labels: ['Equipe A', 'Equipe B', 'Equipe C', 'Equipe D', 'Equipe E'],
+      datasets: [{
+        label: 'Pontuação',
+        data: [300, 250, 200, 180, 150],
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)'
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 205, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+    // Configuração do gráfico
+    var chartOptions = {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    };
+
+    // Obtém o contexto do canvas
+    var ctx = document.getElementById('rankingChart').getContext('2d');
+
+    // Criação do gráfico de barras
+    var rankingChart = new Chart(ctx, {
+      type: 'bar',
+      data: rankingData,
+      options: chartOptions
+    });
+
+    function atualizarGolpe() {
+      var selectElement = document.getElementById('selectGolpe');
+      var selectedGolpe = selectElement.value;
+
+      // Atualiza os dados do gráfico com pontuações fictícias para os golpes escolhidos
+      switch (selectedGolpe) {
+        case 'jab':
+          rankingData.datasets[0].data = [280, 240, 210, 190, 160];
+          break;
+        case 'direto':
+          rankingData.datasets[0].data = [310, 260, 190, 180, 140];
+          break;
+        case 'chute-alto':
+          rankingData.datasets[0].data = [320, 280, 230, 200, 170];
+          break;
+        case 'joelhada':
+          rankingData.datasets[0].data = [290, 220, 190, 170, 140];
+          break;
+        case 'cotovelada':
+          rankingData.datasets[0].data = [270, 250, 200, 170, 160];
+          break;
+        default:
+          break;
+      }
+
+      // Atualiza o gráfico
+      rankingChart.update();
+    }
+  </script>
+
+</body>
+</html>
