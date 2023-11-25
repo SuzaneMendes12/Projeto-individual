@@ -31,14 +31,12 @@ body {
 }
 .container1 h1{
     margin-left: 5%;
+    color: blue;
 }
 .container1 img{
     width: 5%;
 }
-.header h1{
-   
-    color: blue;
-}
+
 .header ul  {
     width: 500px;
     display: flex;
@@ -356,4 +354,62 @@ transition: 0.6s;
 .content-ods:hover{
     transform: translate(0px);
     opacity: 1;
+}
+
+  .content2{
+    padding: 50px;
+  }
+.golpes{
+    display: flex;
+    justify-content: center;
+    
+}
+.golpesF{
+    width: 200px;
+}
+.tituloF{
+    color: aliceblue;
+    display: flex;
+    padding: 5%;
+}
+.final h3{
+    color: aliceblue;
+}
+.final{
+    display: flex;
+    border: solid;
+    width: 60%;
+    margin: auto;
+    /* height: 300px; */
+}
+.imgfinal{
+    display: flex;
+    /* width:100%; */
+    justify-content: center;
+    /* margin-right: 50px; */
+}
+.imgfinal img{
+    border-radius:50%;
+    width: 100%;
+}
+
+.textoF{
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+    font-size: 20px;
+    justify-content: center;
+}
+
+.help{
+    display: flex;
+}
+
+p{
+    margin: 10%;
+}
+
+h3{
+  margin-right: 10%;
+  margin-left: 10%;
 }
