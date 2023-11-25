@@ -13,14 +13,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(img/conceito-forte-de-batida-da-batida-do-atleta-da-autodefesa-do-pugilista.jpg) ;
+  background-image: url(../img/conceito-forte-de-batida-da-batida-do-atleta-da-autodefesa-do-pugilista.jpg) ;
   background-position: center;
   background-size: cover;
 }
 
 .container {
   background-color: rgb(85, 85, 85);
-  border: solid 1px;
   padding: 6px;
   width: 350px;
   height: 550px;
@@ -30,7 +29,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 0 30px 0 darkgrey;
+  box-shadow: 0 0 30px 0 rgb(0, 0, 0);
 }
 
 form {
@@ -104,4 +103,12 @@ button[type="submit"] {
 #cadastro {
   left: 450px;
 }
-
+#btnlogin{
+  color: aliceblue;
+}
+#btncadastro{
+  color:aliceblue;
+}
+span{
+  color: aliceblue;
+}
