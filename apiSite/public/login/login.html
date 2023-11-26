@@ -18,19 +18,19 @@
             <button id="btncadastro">Cadastro</button>
         </div>
 
-        <form id="login">
-            <input type="text" placeholder="Email" required />
+        <div id="login" class="form">
+            <input type="text" placeholder="Email" required id="email_login"/>
             <i class="fas fa-envelope iEmail"></i>
-            <input type="password" placeholder="Senha" required />
+            <input type="password" placeholder="Senha" required id="senha_login"/>
             <i class="fas fa-lock iPassword"></i>
             <!-- <div class="divCheck">
                 <input type="checkbox" />
                 <span>Lembrar senha </span>
             </div> -->
             <button type="submit">Login</button>
-        </form>
+        </div>
 
-        <form id="cadastro">
+        <div id="cadastro" class="form">
             <input type="text" placeholder="Nome" id="nome_input" required />
             <i class="fas fa-lock iNome"></i>
             <input type="text" placeholder="Sobrenome" id="sobrenome_input" required />
@@ -46,7 +46,7 @@
 
                 <span id="span_erro"></span>
             <button type="submit">Cadastrar</button>
-        </form>
+        </div>
     </div>
 
     <script src="login.js"></script>
@@ -55,26 +55,17 @@
 
 </html>
 <script> 
+
 // função cadastrar 
 function cadastrar() {
-        // aguardar();
-
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
+   
         var nickname = nome_input.value;
         var sobrenome = sobrenome_input.value;
         var email = email_input.value;
-        // var dtnasc = dtnasc_input.value;
         //  var cpf = cpf_input.value;
         var senha = senha_input.value;
         const spanErro = document.getElementById("span_erro")
-        // var confirmacaoSenhaVar = confirmacao_senha_input.value;
-
-        // nome_input.value = "";
-        // email_input.value = "";
-        // dtnasc_input.value = "";
-        // senha_input.value = "";
-
+    
         div_email.innerHTML = "";
         div_senha.innerHTML = "";
         div_erro.innerHTML = "";
@@ -151,8 +142,8 @@ function cadastrar() {
 function entrar() {
         // aguardar();
 
-        var email = email_input.value;
-        var senha = senha_input.value;
+        var email = email_login.value;
+        var senha = senha_login.value;
 
 
         if (email.indexOf("@") == -1 && email.indexOf(".") == -1) {
@@ -199,6 +190,7 @@ function entrar() {
                     console.log(JSON.stringify(json));
                     
                     sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.SENHA_USUARIO = json.senha;
                     sessionStorage.NICKNAME_USUARIO = json.nickname;
                     sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
                     

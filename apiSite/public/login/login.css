@@ -32,7 +32,7 @@ body {
   box-shadow: 0 0 30px 0 rgb(0, 0, 0);
 }
 
-form {
+.form {
   position: absolute;
   margin-top: 90px;
   transition: .5s;
