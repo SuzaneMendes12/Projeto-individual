@@ -2,6 +2,7 @@ var usuarioModel = require("../models/usuarioModel");
 
 // Função para cadastrar
 function cadastrar(req, res) {
+    console.log(`estou em usuarioController`)
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nickname = req.body.nicknameServer;
     var email = req.body.emailServer;
@@ -38,5 +39,5 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    cadastrar
+    cadastrar,
 }

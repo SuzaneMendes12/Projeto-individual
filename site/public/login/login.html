@@ -30,6 +30,7 @@
             <button type="submit" onclick="irProLogin()">Login</button>
         </div>
 
+
         <div id="cadastro" class="form">
             <input type="text" placeholder="Nome" id="nome_input" required />
             <i class="fas fa-lock iNome"></i>
@@ -45,7 +46,8 @@
             <i class="fas fa-lock iPassword2"></i>
 
                 <span id="span_erro"></span>
-            <button type="submit" onclick="irProLogin()">Cadastrar</button>
+            <button type="submit" onclick="cadastrar()">Cadastrar</button>
+            <div id="div_erro"></div>
         </div>
     </div>
 
@@ -64,6 +66,7 @@ function irProLogin() {
 // função cadastrar 
 function cadastrar() {
    
+    console.log(`entrei na funcao`)
         var nickname = nome_input.value;
         var sobrenome = sobrenome_input.value;
         var email = email_input.value;
@@ -71,9 +74,9 @@ function cadastrar() {
         var senha = senha_input.value;
         const spanErro = document.getElementById("span_erro")
     
-        div_email.innerHTML = "";
-        div_senha.innerHTML = "";
-        div_erro.innerHTML = "";
+        var div_email = "";
+        var div_senha = "";
+       
 
 
         if (nickname == "" || email == "" ||  senha == "") {
@@ -82,21 +85,24 @@ function cadastrar() {
             // 
             return false;
         } else if (!email.includes("@gmail.com") && !email.includes("@hotmail.com") && !email.includes("@outlook.com")) {
-            div_email.innerHTML = `Email inválido deve conter @ e .`;
-        } else if (senhaVar.length <= 6) {
-            div_senha.innerHTML = `A senha deve conter mais de 6 caracteres`;
+            // div_erro.innerHTML = `Email inválido deve conter @ e .`;
+            alert(`Email inválido deve conter @ e .`)
+        } else if (senha.length <= 6) {
+            alert(`A senha deve conter mais de 6 caracteres`)
         } else {
-            verificar_nickname(nickname, function (error, nicknameCadastrado) {
-                if (error) {
-                    console.error(error);
-                    return;
-                }
+            // verificar_nickname(nickname, function (error, nicknameCadastrado) {
+            //     if (error) {
+            //         console.error(error);
+            //         return;
+            //     } 
 
-                if (nicknameCadastrado) {
-                    spanErro.style.display = "block";
-                    spanErro.innerHTML = "O Nickname já está cadastrado";
-                }
-                else {
+            //     else if (nicknameCadastrado) {
+            //         console.log(`estou no elseif`)
+            //         spanErro.style.display = "block";
+            //         spanErro.innerHTML = "O Nickname já está cadastrado";
+            //     }
+            //     else {
+                    
                     fetch("/usuarios/cadastrar", {
                         method: "POST",
                         headers: {
@@ -108,7 +114,7 @@ function cadastrar() {
                             // Agora vá para o arquivo routes/usuario.js
 
                             nicknameServer: nickname,
-                            sobrenomeServer:sobrenome,
+                            sobrenomeServer: sobrenome,
                             emailServer: email,
                             senhaServer: senha,
                             // cpfServer:cpf,
@@ -121,11 +127,11 @@ function cadastrar() {
                         if (resposta.ok) {
                             // cardErro.style.display = "block";
 
-                            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                            alert(`Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
 
                             setTimeout(() => {
                                 window.location = "login.html";
-                            }, "2000")
+                            }, "500")
 
                             limparFormulario();
                             // finalizarAguardar();
@@ -139,9 +145,10 @@ function cadastrar() {
 
                     return false;
                 }
-            });
-        }
-    }
+            }
+    //         );
+    //     }
+    // }
 
 // funçao login
 function entrar() {
@@ -152,20 +159,20 @@ function entrar() {
 
 
         if (email.indexOf("@") == -1 && email.indexOf(".") == -1) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "O email deve conter @ e .";
+            div_erro.style.display = "block"
+            alert(`email deve conter @ e .` ) 
 
             // finalizarAguardar();
             return false;
         }
         else if(senha != senha ){
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Senha incorreta";
+            div_erro.style.display = "block"
+            alert(`Senha incorreta`)
 
             return false;
         } else if (email == "" || senha == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            div_erro.style.display = "block"
+            alert (`Mensagem de erro para todos os campos em branco`);
             return false;
         }
         else {
@@ -221,9 +228,4 @@ function entrar() {
 
         return false;
     }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
 </script>
