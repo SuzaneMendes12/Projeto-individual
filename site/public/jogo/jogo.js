@@ -1,6 +1,6 @@
 // contagem de pontos 
-var contUser = 0
-var contPc = 0
+var contUser = 0;
+var contPc = 0;
 
 // elementos do jogo que chamo do html  em const para evitar mudanças de valor
 const imgUser = document.getElementById("user")
@@ -77,14 +77,14 @@ function analyze() {   //regra do jogo
         // audioLose.play()
     }
 
-    // melhor de 5
-    if (contUser >= 5) {
+    // melhor de 3
+    if (contUser >= 3) {
         winner.classList.remove('none')
         winner.classList.add('center')
         resultadoV += 1;
     }
 
-    if (contPc >= 5) {
+    if (contPc >= 3) {
         loser.classList.remove('none')
         loser.classList.add('center')
         resultadoD += 1;
@@ -147,6 +147,10 @@ function clear() {
     imgUser.innerHTML = "";
 
 
+}
+
+function irPraDash() {
+    window.location.href = "../dashboard/dashbord.html";
 }
 
 

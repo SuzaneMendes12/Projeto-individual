@@ -27,7 +27,7 @@
                 <input type="checkbox" />
                 <span>Lembrar senha </span>
             </div> -->
-            <button type="submit">Login</button>
+            <button type="submit" onclick="irProLogin()">Login</button>
         </div>
 
         <div id="cadastro" class="form">
@@ -45,7 +45,7 @@
             <i class="fas fa-lock iPassword2"></i>
 
                 <span id="span_erro"></span>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" onclick="irProLogin()">Cadastrar</button>
         </div>
     </div>
 
@@ -55,6 +55,11 @@
 
 </html>
 <script> 
+
+function irProLogin() {
+    window.location.href = "../jogo/jogo.html";
+}
+
 
 // função cadastrar 
 function cadastrar() {

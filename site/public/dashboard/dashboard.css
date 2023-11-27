@@ -42,7 +42,8 @@ body{
 .header  ul {
     text-decoration: none;
     color: red; width: 500px;
-    margin-left: 80%;
+    margin-left: 70%;
+
 
 }
 
@@ -67,15 +68,44 @@ body{
 }
 .chart-container {
     width: 45%;
+    height: 330px;
+    background-color: #1b1b1b;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    margin: 50px;
+    border: solid ;
+    margin-left: 100px;
+
+    
+}
+.container_graficos {
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+}
+.chart-container2 {
+    width: 25%;
+    height: 25%;
     background-color: #1b1b1b;
     border-radius: 10px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     margin: 40px;
     border: solid ;
+    margin-right: 100px;
+
     
 }
-.container_graficos {
+.titulosGrafico{
     display: flex;
-   justify-content: end;
-
+    justify-content: space-around;
+    align-items: end;
+    margin-top: 2%;
 }
+.golpesF{
+    margin-left: 15%;
+}
+.jogo{
+    margin-left: 10%;
+}
+
