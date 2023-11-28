@@ -21,23 +21,23 @@ function cadastrar(nome,sobrenome, email, senha)  {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function golpeFav (idUsuario, NomeGolpe) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():" , idUsuario , NomeGolpe);
+// function golpeFav (idUsuario, NomeGolpe) {
+//     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():" , idUsuario , NomeGolpe);
 
-    var instrucao =` INSERT INTO golpe_favorito (idUsuario, NomeGolpe ) VALUES ('${idUsuario}','${NomeGolpe}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
+//     var instrucao =` INSERT INTO golpe_favorito (idUsuario, NomeGolpe ) VALUES ('${idUsuario}','${NomeGolpe}');
+//     `;
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
 
-function jogo(resultadoD, resultadoD, fkUsuario ) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():" , resultadoD, resultadoD , fkUsuario);
+// function jogo(resultadoD, resultadoD, fkUsuario ) {
+//     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():" , resultadoD, resultadoD , fkUsuario);
 
-    var instrucao =` INSERT INTO jogo (derrotas, vitorias, fkUsuario ) VALUES ('${resultadoD}','${resultadoD}', '${fkUsuario}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
+//     var instrucao =` INSERT INTO jogo (derrotas, vitorias, fkUsuario ) VALUES ('${resultadoD}','${resultadoD}', '${fkUsuario}');
+//     `;
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
 
 
 module.exports = {

@@ -8,11 +8,11 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 });
 
-router.post("/golpe", function (req, res) {
-    usuarioController.golpe(req, res);
-});
+// router.post("/golpe", function (req, res) {
+//     usuarioController.golpe(req, res);
+// });
 
-router.post("/jogo", function (req, res) {
-    usuarioController.jogo(req, res);
-});
+// router.post("/jogo", function (req, res) {
+//     usuarioController.jogo(req, res);
+// });
 module.exports = router;
