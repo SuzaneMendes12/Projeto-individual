@@ -100,7 +100,9 @@ function analyze() {   //regra do jogo
     }, 1000);
 
     
-    fetch("/usuarios/pontos_finais", {
+    var id =  sessionStorage.IDUSUARIO_USUARIO;
+    
+    fetch("/usuarios/jogo", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -121,7 +123,9 @@ function analyze() {   //regra do jogo
                 console.log(JSON.stringify(json));
                 console.log("Respota com sucesso");
 
-                console.log(pontos)
+                console.log(resuldadoD)
+                console.log(resultadoV)
+
             });
 
         } else {
