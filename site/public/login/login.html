@@ -27,7 +27,7 @@
                 <input type="checkbox" />
                 <span>Lembrar senha </span>
             </div> -->
-            <button type="submit" onclick="irProLogin()">Login</button>
+            <button type="submit" onclick="entrar()">Login</button>
         </div>
 
 
@@ -58,9 +58,9 @@
 </html>
 <script> 
 
-function irProLogin() {
-    window.location.href = "../jogo/jogo.html";
-}
+// function irProLogin() {
+//     window.location.href = "../jogo/jogo.html";
+// }
 
 
 // função cadastrar 
@@ -201,14 +201,12 @@ function entrar() {
                     console.log(json);
                     console.log(JSON.stringify(json));
                     
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.SENHA_USUARIO = json.senha;
-                    sessionStorage.NICKNAME_USUARIO = json.nickname;
                     sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
-                    
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NICKNAME_USUARIO = json.nome;
 
                     setTimeout(function () {
-                        window.location = "./quiz/index.html";
+                        window.location = "../jogo/jogo.html";
                     }, 1000); 
 
                 });

@@ -209,7 +209,7 @@
         <div class="golpes">
             <div class="golpe">
                 <p>Soco</p>
-                <img src="./img/eu4.jpg" class="img_chuve">
+                <img src="./img/soco.jpeg" class="img_chuve">
 
                 <div class="animacao">
 
@@ -227,7 +227,7 @@
             </div>
             <div class="golpe">
                 <p>Chute</p>
-                <img src="./img/eu4.jpg" class="img_chuve">
+                <img src="./img/chute.jpeg" class="img_chuve">
 
                 <div class="animacao">
                     <label class="coracao">
@@ -243,7 +243,7 @@
             </div>
             <div class="golpe">
                 <p>Joelho</p>
-                <img src="./img/eu4.jpg" class="img_chuve">
+                <img src="./img/joelho.jpeg" class="img_chuve">
                 <div class="animacao">
                     <label class="coracao">
                         <input type="checkbox">
@@ -280,7 +280,7 @@
     <footer>
         <h3>Contatos<br>
             Telefone: 11948554376<br>
-            Email:suzanedias47@gmail.com</h3>       
+            Email:suzanedias47@gmail.com</h3>
     </footer>
 
 
@@ -294,3 +294,59 @@
 </body>
 
 </html>
+
+
+<!-- <script>
+    function obterDadosGrafico(idAquario) {
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao)
+        }
+
+
+        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then
+            (function (respose) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
+                            ;
+                        resposta.reverse();
+
+                        plotarGrafico(resposta, idAquario);
+
+                    });
+                } else {
+                    console.error(`Nenhum dado encontrado ou erro na API`);
+                }
+
+            })
+            .catch(function (error) {
+                console.error(`Erro em obter dados para o grafico ${error.message}`)
+            });
+    }
+
+    function plotarGrafico(resposta,idAquario) {
+        console.log('iniciando plotagem do grafico...');
+
+        var dados = {
+
+            for (i = 0; i < resposta.length; i++) {
+
+                console.log(JSON.stringify(dados));
+
+                var ctx = canvas_grafico.getContext('2d');
+                window.grafico_linha = Chart.line(ctx, { 
+                    data: dados,
+                    options: {
+                        responsive: true,
+                        animation:{ duration:500 },
+                        hoverMode: 'index',
+                        stacked: false,
+                        title: {
+                            scales: {
+                    }
+                
+            });
+            setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
+        }
+    }
+     -->
