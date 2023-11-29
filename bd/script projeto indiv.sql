@@ -37,9 +37,10 @@ insert into jogo (fkUsuario ,derrotas, vitorias ) values
 
 select * from usuario;
 select * from jogo;
-select * from golpe_favorito;
+
+select * from golpe_favorito;	
 
 
-
+truncate table jogo;
 
 

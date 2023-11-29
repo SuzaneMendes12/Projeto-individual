@@ -9,14 +9,7 @@ function jogo(req, res) {
     var fkUsuario = req.body.idServer;
 
     // Faça as validações dos valores
-    if (resultadoD == undefined) {
-        res.status(400).send("Seu nome está undefined!");
-    } else if (resultadoV == undefined) {
-        res.status(400).send("Seu email está undefined!");
-    } else if (fkUsuario == undefined) {
-        res.status(400).send("Sua senha está undefined!");
-
-    } else {
+   
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         jogoModel.jogo(resultadoD, resultadoV, fkUsuario)
@@ -35,7 +28,7 @@ function jogo(req, res) {
                 }
             );
     }
-}
+
 
 module.exports = {
    

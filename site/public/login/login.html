@@ -46,7 +46,7 @@
             <i class="fas fa-lock iPassword2"></i>
           
              Golpe Favorito
-            <select name="golpe" id="golpe">
+            <select id="golpe">
                 <option value="soco">soco</option>
                 <option value="chute">chute</option>
                 <option value="joelho">joelho</option>
@@ -67,8 +67,6 @@
     // function irProLogin() {
     //     window.location.href = "../jogo/jogo.html";
     // }
-
-
     // função cadastrar 
     function cadastrar() {
 
@@ -131,32 +129,46 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    // cardErro.style.display = "block";
+                    obterId(email, senha);
 
-                    alert(`Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
-
-                    setTimeout(() => {
-                        window.location = "login.html";
-                    }, "500")
-
-                    limparFormulario();
-                    // finalizarAguardar();
                 } else {
                     throw new Error("Houve um erro ao tentar realizar o cadastro!");
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
 
             return false;
         }
     }
-    //         );
-    //     }
-    // }
 
-    // funçao login
+    function obterId(email, senha){
+        fetch("/usuarios/obterId", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                senhaServer: senha,
+                emailServer: email
+            })
+        }) .then(function(resposta){
+            if(resposta.status == 400){
+                alert('Cadastro inicial falhou')
+            } else if(resposta.status == 500){
+                alert('Falha na comunicação com o servidor')
+            } else {
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.idUsuario = json.idUsuario 
+                })
+
+                setTimeout(salvarGolpeFavorito, 100);
+            }
+        })
+    }
+
     function entrar() {
         // aguardar();
 
@@ -206,13 +218,12 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-
-                    sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NICKNAME_USUARIO = json.nome;
+                    sessionStorage.IDUSUARIO_USUARIO = json[0].idUsuario;
+                    sessionStorage.EMAIL_USUARIO = json[0].email;
+                    sessionStorage.NICKNAME_USUARIO = json[0].nome;  // tem q passar em vetor 
 
                     setTimeout(function () {
-                        window.location = "../jogo/jogo.html";
+                        window.location = "../jogo/jogoF.html";
                     }, 1000);
 
                 });
@@ -232,4 +243,79 @@
 
         return false;
     }
+
+//     function salvarDados(resultadoD, resultadoV){
+//     var id =  sessionStorage.IDUSUARIO_USUARIO;
+//     console.log("AAAAAAAAAAAAAAAAAAAAa "+ id)
+    
+//     fetch("/jogorotas/jogo", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({
+//             resultadoDServer: resultadoD,
+//             resultadoVServer: resultadoV,
+//             idServer: id
+//         })
+//     }).then(function (resposta) {
+//         console.log("ESTOU NO THEN DO entrar()!")
+
+//         if (resposta.ok) {
+//             console.log(resposta);
+
+//             resposta.json().then(json => {
+//                 console.log(json);
+//                 console.log(JSON.stringify(json));
+//                 console.log("Respota com sucesso");
+
+//                 console.log(resuldadoD)
+//                 console.log(resultadoV)
+
+//             });
+
+//         } else {
+
+//             console.log("Houve um erro ao tentar realizar o login!");
+
+//             resposta.text().then(texto => {
+//                 console.error(texto);
+//             });
+//         }
+
+//     }).catch(function (erro) {
+//         console.log(erro);
+//     })
+// }
+
+function salvarGolpeFavorito() {
+        console.log("entrei na funcao")
+        var nomeGolpe = golpe.value;
+        console.log(golpe)
+
+        fetch("/golpe/salvar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                NomeGolpeServer: nomeGolpe,
+                idServer: sessionStorage.idUsuario
+            
+            })
+        }).then(function (response) {
+            if (response.status == 500) {
+                div_erro.innerHTML = `Erro ao salvar golpe`;
+                div_erro.style.display = "block";
+                div_sucesso.style.display = "none";
+            } else if(response.status == 200) {
+                alert('cadastro foi')
+                setTimeout(() => {
+                    window.location.href = 'login.html'
+                }, 100)
+            }
+        })
+        
+    }
+
 </script>

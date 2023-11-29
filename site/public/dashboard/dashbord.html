@@ -16,9 +16,9 @@
   <div class="header">
 
     <div class="container1">
-      <img src="../img/pitbull.ico">
-      <h1>Suzane Blog</h1>
-      <ul>
+      <img src="../img/pitbull.ico" onclick="home()">
+      <h1 onclick="home()">Suzane Blog</h1>
+      <ul onclick="home()">
         Home
       </ul>
 
@@ -144,3 +144,9 @@
 </script>
 
 </html>
+
+<script>
+  function home() {
+        window.location.href = "../index.html";
+    }
+</script>

@@ -82,12 +82,14 @@ function analyze() {   //regra do jogo
         winner.classList.remove('none')
         winner.classList.add('center')
         resultadoV += 1;
+        salvarDados(resultadoD, resultadoV)
     }
 
     if (contPc >= 3) {
         loser.classList.remove('none')
         loser.classList.add('center')
         resultadoD += 1;
+        salvarDados(resultadoD, resultadoV)
     }
 
 
@@ -100,15 +102,35 @@ function analyze() {   //regra do jogo
     }, 1000);
 
     
-    var id =  sessionStorage.IDUSUARIO_USUARIO;
     
-    fetch("/jogo/jogo", {
+
+    return false;
+
+
+}
+
+function clear() {
+    imgPC.innerHTML = ""
+    imgUser.innerHTML = "";
+
+}
+
+function irPraDash() {
+    window.location.href = "../dashboard/dashbord.html";
+}
+
+
+function salvarDados(resultadoD, resultadoV){
+    var id =  sessionStorage.IDUSUARIO_USUARIO;
+    console.log("AAAAAAAAAAAAAAAAAAAAa "+ id)
+    
+    fetch("/jogorotas/jogo", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            resultadoDServer: resuldadoD,
+            resultadoDServer: resultadoD,
             resultadoVServer: resultadoV,
             idServer: id
         })
@@ -140,22 +162,7 @@ function analyze() {   //regra do jogo
     }).catch(function (erro) {
         console.log(erro);
     })
-
-    return false;
-
-
 }
-
-function clear() {
-    imgPC.innerHTML = ""
-    imgUser.innerHTML = "";
-
-}
-
-function irPraDash() {
-    window.location.href = "../dashboard/dashbord.html";
-}
-
 
 // limp TUDO  e poe dnv o jogo
 // zero o contador o user e informo a função reset dnv

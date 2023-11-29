@@ -32,11 +32,13 @@ body{
 .container1 h1{
     color: blue;
     text-align: center;
+    cursor: pointer;
 }
 
 .container1 img{
     width: 5%;
     margin: 1%;
+    cursor: pointer;
 }
 
 .header  ul {
@@ -44,6 +46,7 @@ body{
     color: rgb(25, 0, 255); width: 500px;
     margin-left: 70%;
     font-size: 20px;
+    cursor: pointer;
 
 
 }

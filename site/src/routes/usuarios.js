@@ -11,6 +11,10 @@ router.post("/cadastrar", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
+
+router.post("/obterId", function (req, res) {
+    usuarioController.obterId(req, res);
+});
 // router.post("/golpe", function (req, res) {
 //     usuarioController.golpe(req, res);
 // });

@@ -3,8 +3,8 @@ var router = express.Router();
 
 var golpeController = require("../controllers/golpeController");
 
-router.post("/golpe", function (req, res) {
-    usuarioController.golpe(req, res);
+router.post("/salvar", function (req, res) {
+    golpeController.salvarGolpeFavorito(req, res);
 });
 
 module.exports = router;

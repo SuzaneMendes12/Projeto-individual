@@ -1,5 +1,22 @@
 var usuarioModel = require("../models/usuarioModel");
 
+function obterId(req,res){
+    var senha = req.body.senhaServer
+    var email = req.body.emailServer
+
+    usuarioModel.obterId(senha, email)
+    .then(function(resultadoDaBusca){
+        if(resultadoDaBusca.length == 1){
+            res.json(resultadoDaBusca[0])
+        } else{
+            res.status(400).send('Erro no cadastro')
+        }
+    }) .catch(function(erro){
+        console.log(erro.sqlMessage);
+        res.status(500).send('Erro ao se comunicar com o servidor')
+    })
+}
+
 // Função para cadastrar
 function cadastrar(req, res) {
     console.log(`estou em usuarioController`)
@@ -151,6 +168,7 @@ function autenticar(req, res) {
 
 
 module.exports = {
+    obterId,
     cadastrar,
     autenticar
     
