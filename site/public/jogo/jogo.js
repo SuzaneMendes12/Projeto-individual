@@ -102,7 +102,7 @@ function analyze() {   //regra do jogo
     
     var id =  sessionStorage.IDUSUARIO_USUARIO;
     
-    fetch("/usuarios/jogo", {
+    fetch("/jogo/jogo", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -149,7 +149,6 @@ function analyze() {   //regra do jogo
 function clear() {
     imgPC.innerHTML = ""
     imgUser.innerHTML = "";
-
 
 }
 
