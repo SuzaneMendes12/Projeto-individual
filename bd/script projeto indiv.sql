@@ -30,10 +30,13 @@ constraint FkUsu foreign key (fkUsuario) references usuario  (idUsuario)
 select * from golpe_FAVORITO;
 select * from usuario;
 select * from jogo;
+select sum(vitorias) vitorias, sum(derrotas) derrotas FROM jogo WHERE fkUsuario = 1;
 
 
 
+select vitorias, derrotas from jogo where fkUsuario = 1;
 
+select jogo.vitorias, jogo.derrotas, usuario.nome from jogo join usuario on fkUsuario = idUsuario;
 
 select nomeGolpe, count(*) quantidade from golpe_Favorito group by nomeGolpe;
 

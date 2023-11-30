@@ -32,12 +32,12 @@
 
   <div class="kpis">
     <div class="golpes">
-      <h3> Vitorias</h3>
+      <h3 id="vitorias"> Vitorias</h3>
     </div>
 
 
     <div class="golpesD">
-      <h3>Derrotas</h3>
+      <h3 id="derrotas">Derrotas</h3>
     </div>
   </div>
   <div class="titulosGrafico">
@@ -110,7 +110,7 @@
         'rgba(75, 192, 192, 0.2)',
         'rgba(255, 99, 132, 0.2)',
         'rgba(153, 102, 255, 0.2)'
-       
+
       ],
       borderColor: [
         'rgba(75, 192, 192, 1)',
@@ -169,4 +169,31 @@
   function home() {
     window.location.href = "../index.html";
   }
+
+
+    setTimeout(() => {
+      fetch("/usuarios/jogo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          idServer: sessionStorage.IDUSUARIO_USUARIO
+
+        })
+      }).then(function (resposta) {
+          resposta.json().then(json => {
+            sessionStorage.vitorias = json.vitorias
+            sessionStorage.derrotas = json.derrotas
+
+            vitorias.innerHTML = `vitórias: <p style = "text-align: center">${json.vitorias}</p> `;
+            derrotas.innerHTML = `derrota: <p style = "text-align: center">${json.derrotas}</p> `;
+          })
+      })
+    }, 200);
+
+
+
+
+
 </script>
