@@ -30,6 +30,26 @@ function  salvarGolpeFavorito (req, res) {
             );
     }
 
+    function obterDadosGrafico2(req, res){
+        var nomeGolpe = req.body.nomeGolpe;
+
+        golpeModel.obterDadosGrafico2(nomeGolpe)
+        .then(
+            function(resultadoDabusca){
+                if(resultadoDabusca.length >= 1){
+                    console.log(resultadoDabusca)
+                    res.status(200).json(resultadoDabusca)
+                } else{
+                    res.status(400).send('nada no banco')
+                }
+            }
+        ) .catch(function(erro){
+            console.log(erro.sqlMessage)
+            res.status(500).send('Erro ao se conectar com o banco')
+        })
+    }
+
 module.exports = {
-    salvarGolpeFavorito
+    salvarGolpeFavorito,
+    obterDadosGrafico2
 }

@@ -6,7 +6,7 @@ create table usuario (
 idUsuario int primary key auto_increment,
 nome varchar (45),
 sobrenome varchar(45),
-email varchar (45),
+email varchar (45) unique,
 senha varchar (40)
  -- fkGolpe int
 );
@@ -27,20 +27,17 @@ constraint FkUsu foreign key (fkUsuario) references usuario  (idUsuario)
 
 );
 
--- alter table usuario add constraint fkGolpeFav foreign key (fkGolpe) references golpe_favorito (idGolpe);
-
-
- -- drop database projetoindiv;
-
-insert into jogo (fkUsuario ,derrotas, vitorias ) values
-(1, 1,0);
-
+select * from golpe_FAVORITO;
 select * from usuario;
 select * from jogo;
 
-select * from golpe_favorito;	
 
 
-truncate table jogo;
 
 
+select nomeGolpe, count(*) quantidade from golpe_Favorito group by nomeGolpe;
+
+ SELECT idUsuario FROM usuario WHERE senha = 'senha' AND email = 'email';
+ 
+  SELECT idUsuario, nome, email FROM usuario WHERE email = 'suzanedias47@gmail.com' AND senha = '12345678';
+  

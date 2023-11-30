@@ -9,6 +9,17 @@ function golpeFav (idUsuario, NomeGolpe) {
     return database.executar(instrucao);
 }
 
+function obterDadosGrafico2 (nomeGolpe){
+
+    var instrucao = `
+    select ${nomeGolpe}, count(*) quantidade from golpe_Favorito group by ${nomeGolpe};
+    `
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
+    obterDadosGrafico2,
     golpeFav
 };

@@ -35,7 +35,7 @@
       <h3> Vitorias</h3>
     </div>
 
- 
+
     <div class="golpesD">
       <h3>Derrotas</h3>
     </div>
@@ -62,6 +62,7 @@
 
 </div>
 
+</html>
 <script>
 
 
@@ -69,7 +70,7 @@
     labels: ['Maria', 'suzane', 'borin', 'Luan', 'Thiago'],
     datasets: [{
       label: 'Ranking',
-      data: [5, 4, 3, 2,1 ],
+      data: [5, 4, 3, 2, 1],
       backgroundColor: [
         'rgba(75, 192, 192, 0.2)',
         'rgba(255, 99, 132, 0.2)',
@@ -92,37 +93,28 @@
     data: data,
     options: {}
   };
-</script>
 
-<script>
+
   const myChart = new Chart(
     document.getElementById('myChart'),
     config
   );
 
-</script>
-
-
-<script>
-
-
+  var dadosGrafico2 = [];
   const data2 = {
     labels: ['Chute', 'soco', 'joelho'],
     datasets: [{
       label: 'Votação Golpe Favorito',
-      data: [1, 2, 3],
+      data: dadosGrafico2,
       backgroundColor: [
         'rgba(75, 192, 192, 0.2)',
         'rgba(255, 99, 132, 0.2)',
-
-        'rgba(54, 162, 235, 0.2)',
         'rgba(153, 102, 255, 0.2)'
+       
       ],
       borderColor: [
         'rgba(75, 192, 192, 1)',
         'rgba(255, 99, 132, 1)',
-
-        'rgba(54, 162, 235, 1)',
         'rgba(153, 102, 255, 1)'
       ],
       borderWidth: 1
@@ -133,20 +125,48 @@
     data: data2,
     options: {}
   };
-</script>
 
-<script>
+
+
   const myChart2 = new Chart(
     document.getElementById('myChart2'),
     config2
   );
 
-</script>
+  fetch("/golpe/plotar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nomeGolpe: 'nomeGolpe'
 
-</html>
+    })
+  }).then(function (resposta) {
+    if (resposta.status == 200) {
 
-<script>
-  function home() {
-        window.location.href = "../index.html";
+      resposta.json().then(json => {
+        console.log(json);
+        console.log(JSON.stringify(json));
+        sessionStorage.grafico2 = JSON.stringify(json);
+      })
+      setTimeout(() => {
+        var dados = JSON.parse(sessionStorage.grafico2)
+        atualizarGrafico(dados)
+      }, 100)
+
+    } else {
+      alert('não pegou os dados do gráfico')
     }
+  })
+
+  function atualizarGrafico(dados) {
+    dados.forEach(item => {
+      dadosGrafico2.push(item.quantidade)
+      myChart2.update()
+    })
+  }
+  function home() {
+    window.location.href = "../index.html";
+  }
 </script>
