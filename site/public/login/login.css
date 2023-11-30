@@ -112,3 +112,14 @@ button[type="submit"] {
 span{
   color: aliceblue;
 }
+.fav{
+  color: aliceblue;
+  
+}
+
+#golpe{
+  border-radius: 30px;
+  background-color: rgb(67, 67, 172);
+  color: aliceblue;
+  text-align: center;
+}

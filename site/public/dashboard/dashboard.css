@@ -79,7 +79,7 @@ body{
     padding: 20px;
     background-color: red;
 }
-.chart-container {
+/* .chart-container {
     width: 45%;
     height: 330px;
     background-color: #1b1b1b;
@@ -90,11 +90,11 @@ body{
     margin-left: 100px;
 
     
-}
+} */
 .container_graficos {
     display: flex;
-   justify-content: space-between;
    align-items: center;
+   justify-content: center;
 
 }
 .chart-container2 {
@@ -105,20 +105,18 @@ body{
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     margin: 40px;
     border: solid ;
-    margin-right: 100px;
+    display: flex;
+  
+   
 
     
 }
 .titulosGrafico{
     display: flex;
-    justify-content: space-around;
-    align-items: end;
+    justify-content: center;
     margin-top: 2%;
+    width: 100%;
 }
-.golpesF{
-    margin-left: 15%;
-}
-.jogo{
-    margin-left: 10%;
-}
+
+
 
